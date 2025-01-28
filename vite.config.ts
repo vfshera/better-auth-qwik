@@ -14,6 +14,9 @@ const { dependencies = {}, devDependencies = {} } = pkg as any as {
   devDependencies: PkgDep;
   [key: string]: unknown;
 };
+
+const ALLOWED_DEPS_WITH_QWIK = ["@modular-forms/qwik"];
+
 errorOnDuplicatesPkgDeps(devDependencies, dependencies);
 
 /**
@@ -73,6 +76,7 @@ function errorOnDuplicatesPkgDeps(
   dependencies: PkgDep,
 ) {
   let msg = "";
+
   // Create an array 'duplicateDeps' by filtering devDependencies.
   // If a dependency also exists in dependencies, it is considered a duplicate.
   const duplicateDeps = Object.keys(devDependencies).filter(
@@ -80,9 +84,9 @@ function errorOnDuplicatesPkgDeps(
   );
 
   // include any known qwik packages
-  const qwikPkg = Object.keys(dependencies).filter((value) =>
-    /qwik/i.test(value),
-  );
+  const qwikPkg = Object.keys(dependencies).filter((value) => {
+    return /qwik/i.test(value) && !ALLOWED_DEPS_WITH_QWIK.includes(value);
+  });
 
   // any errors for missing "qwik-city-plan"
   // [PLUGIN_ERROR]: Invalid module "@qwik-city-plan" is not a valid package

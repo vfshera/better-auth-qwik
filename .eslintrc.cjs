@@ -35,8 +35,31 @@ module.exports = {
     "prefer-spread": "off",
     "no-case-declarations": "off",
     "no-console": "off",
-    "@typescript-eslint/no-unused-vars": ["error"],
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      {
+        vars: "all",
+        args: "all",
+        ignoreRestSiblings: false,
+        argsIgnorePattern: "^_",
+        destructuredArrayIgnorePattern: "^_",
+      },
+    ],
     "@typescript-eslint/consistent-type-imports": "warn",
     "@typescript-eslint/no-unnecessary-condition": "warn",
+    "padding-line-between-statements": [
+      "warn",
+      { blankLine: "always", prev: "*", next: ["return", "export"] },
+      {
+        blankLine: "always",
+        prev: ["const", "let", "var", "block-like", "export"],
+        next: "*",
+      },
+      {
+        blankLine: "always",
+        prev: ["const", "let", "var", "block-like", "export"],
+        next: ["const", "let", "var", "block-like", "export"],
+      },
+    ],
   },
 };

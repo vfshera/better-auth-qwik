@@ -1,7 +1,5 @@
 # Build
-/dist
-/lib
-/lib-types
+/dist 
 /server
 
 # Development
@@ -14,6 +12,10 @@ node_modules
 .mf
 .rollup.cache
 tsconfig.tsbuildinfo
+
+# Sqlite
+*.db
+*.sqlite
 
 # Logs
 logs
