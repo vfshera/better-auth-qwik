@@ -50,7 +50,6 @@
     "vite-tsconfig-paths": "^4.3.2"
   },
   "dependencies": {
-    "@modular-forms/qwik": "^0.29.1",
     "better-auth": "^1.2.7",
     "class-variance-authority": "^0.7.1",
     "cli-table3": "^0.6.5",
