@@ -10,9 +10,7 @@ bazel-out
 bazel-qwik
 bazel-testlogs
 dist
-dist-dev
-lib
-lib-types
+dist-dev 
 etc
 external
 node_modules
