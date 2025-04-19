@@ -1,6 +1,6 @@
 {
-  "name": "my-qwik-empty-starter",
-  "description": "Blank project with routing included",
+  "name": "better-auth-qwik",
+  "description": "BetterAuth Qwik Example",
   "engines": {
     "node": "^18.17.0 || ^20.3.0 || >=21.0.0"
   },
@@ -24,15 +24,15 @@
     "lint": "eslint \"src/**/*.ts*\"",
     "preview": "qwik build preview && vite preview --open",
     "start": "vite --open --mode ssr",
+    "db:setup": "pnpm db:generate && pnpm db:migrate",
     "db:generate": "drizzle-kit generate",
-    "db:migrate": "cross-env DB_MIGRATING=true tsx ./src/lib/db/migrate.ts",
+    "db:migrate": "drizzle-kit migrate",
     "qwik": "qwik"
   },
   "devDependencies": {
     "@builder.io/qwik": "^1.13.0",
     "@builder.io/qwik-city": "^1.13.0",
     "@tailwindcss/vite": "^4.1.4",
-    "@types/better-sqlite3": "^7.6.13",
     "@types/eslint": "8.56.10",
     "@types/node": "20.14.11",
     "@typescript-eslint/eslint-plugin": "7.16.1",
@@ -41,7 +41,6 @@
     "drizzle-kit": "^0.30.6",
     "eslint": "8.57.0",
     "eslint-plugin-qwik": "^1.13.0",
-    "postcss": "^8.5.3",
     "prettier": "3.3.3",
     "prettier-plugin-tailwindcss": "^0.5.14",
     "tailwindcss": "^4.1.4",
@@ -53,14 +52,13 @@
   "dependencies": {
     "@modular-forms/qwik": "^0.29.1",
     "better-auth": "^1.2.7",
-    "better-sqlite3": "^11.9.1",
     "class-variance-authority": "^0.7.1",
     "cli-table3": "^0.6.5",
     "clsx": "^2.1.1",
-    "cross-env": "^7.0.3",
     "dotenv": "^16.5.0",
     "dotenv-expand": "^12.0.2",
     "drizzle-orm": "^0.38.4",
+    "postgres": "^3.4.5",
     "tailwind-merge": "^2.6.0",
     "tsx": "^4.19.3",
     "zod": "^3.24.3"

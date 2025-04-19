@@ -2,24 +2,18 @@ import Table from "cli-table3";
 import { config } from "dotenv";
 import { expand } from "dotenv-expand";
 import { z } from "zod";
-
-const stringBoolean = z.coerce
-  .string()
-  .transform((val) => {
-    return val === "true";
-  })
-  .default("false");
+ 
 
 const EnvSchema = z
   .object({
     NODE_ENV: z
       .enum(["development", "production", "test"])
       .default("development"),
-    DB_MIGRATING: stringBoolean,
     BETTER_AUTH_SECRET: z.string().min(1),
     BETTER_AUTH_URL: z.string().min(1),
     GITHUB_CLIENT_ID: z.string().min(1),
     GITHUB_CLIENT_SECRET: z.string().min(1),
+    DATABASE_URL: z.string().min(1),
   })
   .transform((env) => {
     return {
