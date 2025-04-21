@@ -1,12 +1,13 @@
-import { component$ } from "@builder.io/qwik";
-import { Link, type DocumentHead } from "@builder.io/qwik-city";
+import { component$, Slot } from "@builder.io/qwik";
 
 export default component$(() => {
   return (
-    <div class="no-visible-scrollbar flex min-h-[80vh] flex-col items-center justify-center overflow-hidden px-6 md:px-0">
-      <div class="flex items-center gap-2">
+    <main class="h-screen">
+      <Slot />
+
+      <div class="fixed bottom-5 right-5 flex items-center gap-2">
         <svg
-          class="size-24"
+          class="size-10"
           width="500"
           height="500"
           viewBox="0 0 500 500"
@@ -41,23 +42,8 @@ export default component$(() => {
             fill="white"
           />
         </svg>
-        <p class="text-3xl font-bold">Better Auth</p>
+        <p class="text-xl font-bold">Better Auth</p>
       </div>
-      <div class="mt-4 flex items-center justify-center gap-5 *:rounded-lg *:border *:border-white *:px-4 *:py-1.5">
-        <Link href="/login">Login</Link>
-        <Link href="/register">Register</Link>
-        <Link href="/dashboard">Dashboard</Link>
-      </div>
-    </div>
+    </main>
   );
 });
-
-export const head: DocumentHead = {
-  title: "BetterAuth Qwik",
-  meta: [
-    {
-      name: "description",
-      content: "BetterAuth Qwik",
-    },
-  ],
-};
